@@ -18,7 +18,9 @@ const Index = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/transactions/");
+        const response = await axios.get(
+          "https://api-exam-test.onrender.com/transactions/"
+        );
         setTransactions(response.data.transactions);
         setSortedTransactions(response.data.transactions);
         setLoading(false);
@@ -63,7 +65,9 @@ const Index = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/transactions/delete/${id}`);
+      await axios.delete(
+        `https://api-exam-test.onrender.com/transactions/delete/${id}`
+      );
       setTransactions(
         transactions.filter((transaction) => transaction.id !== id)
       );
@@ -83,7 +87,7 @@ const Index = () => {
       const updatedDate = new Date(editingTransaction.birth_date).toISOString();
 
       const response = await axios.put(
-        `http://localhost:4000/transactions/edit/${editingTransaction.id}`,
+        `https://api-exam-test.onrender.com/transactions/edit/${editingTransaction.id}`,
         {
           ...editingTransaction,
           birth_date: updatedDate,

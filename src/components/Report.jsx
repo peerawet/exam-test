@@ -9,7 +9,9 @@ const Report = () => {
   useEffect(() => {
     const fetchMemberData = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/transactions/");
+        const response = await axios.get(
+          "https://api-exam-test.onrender.com/transactions/"
+        );
         const transactions = response.data.transactions;
         const ageCounts = {};
 

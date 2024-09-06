@@ -58,7 +58,7 @@ const TransactionForm = () => {
       // Send POST request to the server
       console.log("Sending data", formData);
       const response = await axios.post(
-        "http://localhost:4000/transactions/create",
+        "https://api-exam-test.onrender.com/transactions/create",
         formData
       );
       console.log("Response:", response.data);
